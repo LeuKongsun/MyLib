@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"/>
+    <item
+        android:id="@+id/nv_book"
+        android:icon="@drawable/ic_book"
+        android:title="BooK"/>
+    <item
+        android:id="@+id/nv_dailyread"
+        android:icon="@drawable/ic_dailyread"
+        android:title="Daily Read"/>
+    <item
+        android:id="@+id/nv_favorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite"/>
+    <item
+        android:id="@+id/nv_download"
+        android:icon="@drawable/ic_download"
+        android:title="Download"/>
+    <item
+        android:id="@+id/nv_share"
+        android:icon="@drawable/ic_share"
+        android:title="Share"/>
+    <item
+        android:id="@+id/nv_other"
+        android:icon="@drawable/ic_other"
+        android:title="Other"/>
+</menu>
