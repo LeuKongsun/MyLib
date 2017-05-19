@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:paddingLeft="16dp"
+    android:orientation="vertical"
     android:paddingRight="16dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:clickable="true"
-    android:background="?attr/itemBackground">
-
-
-</LinearLayout>
+    android:paddingLeft="16dp"
+    android:paddingTop="8dp">
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/book"
+        android:id="@+id/logo_book"
+        />
+    <TextView
+        android:paddingLeft="72dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Android Studio"
+        android:textSize="16sp"
+        android:id="@+id/txt_title"/>
+    <TextView
+        android:paddingLeft="72dp"
+        android:text="Mc.Growth Hill - 2005"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_title"
+        android:id="@+id/txt_author"
+        />
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/star"
+        android:background="#00ffffff"
+        android:onClick="onToggleStar"/>
+</RelativeLayout>

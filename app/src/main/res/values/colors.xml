@@ -3,6 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="txtblack">#222222</color>
-    <color name="grey">#999999</color>
+    <color name="black">#222222</color>
+    <color name="LightBlue">#4fc3f7</color>
+    <color name="startup_background">#e6ee9c</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#c62828</color>
+    <color name="sign_in">#37474f</color>
+    <color name="background_signup">#f06292</color>
 </resources>

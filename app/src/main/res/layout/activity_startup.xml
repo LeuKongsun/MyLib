@@ -3,17 +3,21 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:layout_height="match_parent">
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/mainlogo"/>
+        android:src="@drawable/library"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/txtblack"
-        android:textSize="18dp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:text="MyLib"/>
+        android:textColor="@color/colorPrimaryDark"
+        android:text="E-Library"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:text="Read Anywhere"/>
 </LinearLayout>

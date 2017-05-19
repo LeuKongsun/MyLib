@@ -7,18 +7,26 @@
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    tools:context="com.example.kongsun.mylib.LoginActivity">
+    tools:context="com.example.kongsun.mylib.activity.LoginActivity">
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/mainlogo"/>
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/library"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-Library"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimaryDark"/>
     <EditText
+        android:text="Kongsun"
         android:id="@+id/etx_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
         />
     <EditText
+        android:text="123"
         android:id="@+id/etx_passwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
