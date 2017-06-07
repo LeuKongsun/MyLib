@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.example.kongsun.mylib.R;
 import com.example.kongsun.mylib.dataset.Category;
 
-import java.util.List;
-
 /**
  * Created by kongsun on 5/10/17.
  */
@@ -20,10 +18,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private Category[] categories;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
 
-    public CategoryAdapter(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
+    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
-
 
     public void setCategories(Category[] categories) {
         this.categories = categories;

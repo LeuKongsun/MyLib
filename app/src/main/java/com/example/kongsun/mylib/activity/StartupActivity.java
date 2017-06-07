@@ -19,7 +19,7 @@ public class StartupActivity extends Activity {
                 finish();
                 startMainActivity();
             }
-        },2000);
+        },1000);
     }
 
     private void startMainActivity() {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="95dp"
+    android:layout_height="110dp"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:elevation="10dp"
+    android:focusable="true"
+    android:orientation="horizontal">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/item_book"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/library" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_book"
+            android:text="Microsoft Office"
+            android:textColor="@android:color/black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/txt_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_title"
+            android:text="Bill Gate"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/txt_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_title"
+            android:layout_toRightOf="@id/txt_author"
+            android:paddingLeft="10dp"
+            android:text="4.5"
+            android:textColor="@color/red"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/sign_in">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/library" />
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/background_signup"
+        android:gravity="center"
+        android:text="About App"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/team"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:text="Team   :"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/team"
+                android:text="App Name  :"
+                android:textSize="20sp" />
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/copy_right"
+                android:layout_below="@id/appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Copy Right  :"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text=" FireFrog"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/name_elib"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/team_name"
+                android:text=" E-Library"
+                android:textSize="20sp" />
+            <TextView
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_elib"
+                android:text=" 2017"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="Member"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/mem1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="1. Leu Kongsun"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:textColor="@color/white"
+                android:id="@+id/mem2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mem1"
+                android:text="2. Ratanak Seth"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/mem3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mem2"
+                android:text="3. Thyda Doung"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/mem4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mem3"
+                android:text="4. Lot Phen"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

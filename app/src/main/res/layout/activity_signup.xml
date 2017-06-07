@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/startup_background"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -14,10 +13,10 @@
         android:paddingTop="20dp">
 
         <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/library" />
+            android:src="@drawable/ic_account" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +67,6 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:background="@color/sign_in"
             android:text="Create Account"
             android:textColor="@color/white" />

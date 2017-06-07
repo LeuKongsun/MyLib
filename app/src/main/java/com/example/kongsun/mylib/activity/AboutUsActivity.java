@@ -7,13 +7,13 @@ import android.support.annotation.Nullable;
 import com.example.kongsun.mylib.R;
 
 /**
- * Created by kongsun on 5/16/17.
+ * Created by kongsun on 5/23/17.
  */
 
-public class RecentlyActivity extends Activity {
+public class AboutUsActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.book_fragment);
+        setContentView(R.layout.activity_aboutus);
     }
 }

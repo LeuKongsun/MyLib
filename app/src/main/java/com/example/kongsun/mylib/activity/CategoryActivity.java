@@ -20,9 +20,8 @@ import com.example.kongsun.mylib.db.DatabaseManager;
  * Created by kongsun on 5/3/17.
  */
 
-public class CategoryActivity extends AppCompatActivity implements OnRecyclerViewItemClickListener {
+public class CategoryActivity extends AppCompatActivity implements OnRecyclerViewItemClickListener{
     private RecyclerView recyclerView;
-    private CategoryAdapter categoryAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,12 +47,12 @@ public class CategoryActivity extends AppCompatActivity implements OnRecyclerVie
         Category category = new Category(0,"Hello World");
 
         //Store Data in DatabaseManager
-        DatabaseManager databaseManager = new DatabaseManager(this,null,null,1);
+        DatabaseManager databaseManager = new DatabaseManager(this);
         databaseManager.insertCategory(category);
         Category[] categories = databaseManager.getAllCategories();
 
         //Adapter
-        CategoryAdapter adapter = new CategoryAdapter(this);
+        CategoryAdapter adapter = new CategoryAdapter();
         adapter.setCategories(categories);
         recyclerView.setAdapter(adapter);
         //prepareCategoryData();

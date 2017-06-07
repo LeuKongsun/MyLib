@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.kongsun.mylib.dataset.Category;
 
@@ -14,14 +15,17 @@ import java.util.List;
  * Created by kongsun on 5/13/17.
  */
 
-public class DatabaseManager extends SQLiteOpenHelper {
-    public DatabaseManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, "E-library", factory, 1);
+public class DatabaseManager extends SQLiteOpenHelper { //It is a kind of abstract class. abstract method need to implement.
+//Default constructor
+//Define Database name and Version. Name "E-library" and Version 1.
+    public DatabaseManager(Context context) {
+        super(context, "E-library", null, 1);
     }
-
+// Two function below are abstract method
+// Create table schema(structure)
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table tbCategory(id integer primary key autoincrement," +
+        String sql = "CREATE TABLE tbCategory(id integer primary key autoincrement," +
                 "title text)";
         db.execSQL(sql);
     }
@@ -41,7 +45,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public Category[] getAllCategories() {
         SQLiteDatabase db = getReadableDatabase();
         String[] columns = {"id", "title"};
-        Cursor cursor = db.query("tbCategory", columns, null, null, null, null, "id desc");
+        Cursor cursor = db.query("tbCategory", columns, null, null, null, null, "id desc"); //null mean all
         Category[] categories = new Category[cursor.getCount()];
         int index = 0;
         while (cursor.moveToNext()) {

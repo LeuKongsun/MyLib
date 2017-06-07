@@ -9,13 +9,12 @@ import android.view.ViewGroup;
 import com.example.kongsun.mylib.R;
 
 /**
- * Created by kongsun on 5/16/17.
+ * Created by kongsun on 5/23/17.
  */
 
-public class Recently_fragement extends Fragment {
-
+public class PopularFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.book_row_list, container, false);
+        return inflater.inflate(R.layout.book_fragment, container, false);
     }
 }

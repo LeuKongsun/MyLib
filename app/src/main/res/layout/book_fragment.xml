@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:clickable="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:id="@+id/logo_book"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/book" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="72dp"
+            android:text="Android Studio"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_title"
+            android:paddingLeft="72dp"
+            android:text="Mc.Growth Hill - 2005" />
+
+        <ImageButton
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:background="#00ffffff"
+            android:onClick="onToggleStar"
+            android:src="@drawable/ic_favorited" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/favorite"
+            android:background="#00ffffff"
+            android:onClick="onClick"
+            android:paddingTop="12dp"
+            android:src="@drawable/ic_download" />
+    </RelativeLayout>
+</LinearLayout>
