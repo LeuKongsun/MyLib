@@ -26,10 +26,8 @@ public class CategoryActivity extends AppCompatActivity implements OnRecyclerVie
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content);
+        setContentView(R.layout.activity_main);
         //setToolbar and Title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tlb_content);
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Category");
 
         //Put Recyclerview

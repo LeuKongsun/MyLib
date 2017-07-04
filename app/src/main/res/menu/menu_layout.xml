@@ -1,52 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single" />
     <item android:title="E-Library">
         <menu>
-            <item
-                android:id="@+id/nv_home"
-                android:icon="@drawable/ic_home"
-                android:title="Home" />
-            <item
-                android:id="@+id/nv_category"
-                android:icon="@drawable/ic_category"
-                android:title="Category" />
-            <item
-                android:id="@+id/nv_mylibrary"
-                android:icon="@drawable/ic_mylibrary"
-                android:title="My Library" />
-            <item
-                android:id="@+id/nv_favorite"
-                android:icon="@drawable/ic_favorite"
-                android:title="Favorite" />
-            <item
-                android:id="@+id/nv_import"
-                android:icon="@drawable/ic_import"
-                android:title="Import" />
-            <item
-                android:id="@+id/nv_notification"
-                android:icon="@drawable/ic_notification"
-                android:title="Notification" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nv_home"
+                    android:icon="@drawable/ic_home"
+                    android:title="Home" />
+                <item
+                    android:id="@+id/nv_mylibrary"
+                    android:icon="@drawable/ic_mylibrary"
+                    android:title="My Library" />
+                <item
+                    android:id="@+id/nv_favorite"
+                    android:icon="@drawable/ic_favorite"
+                    android:title="Favorite" />
+                <item
+                    android:id="@+id/nv_import"
+                    android:icon="@drawable/ic_import"
+                    android:title="Import" />
+                <item
+                    android:id="@+id/nv_notification"
+                    android:icon="@drawable/ic_notification"
+                    android:title="Notification" />
+            </group>
         </menu>
     </item>
     <item android:title="Other">
         <menu>
-            <item
-                android:id="@+id/nv_account"
-                android:icon="@drawable/ic_account"
-                android:title="Account" />
-            <item
-                android:id="@+id/nv_feedback"
-                android:icon="@drawable/ic_feedback"
-                android:title="Feedback" />
-            <item
-                android:id="@+id/nv_aboutus"
-                android:icon="@drawable/ic_aboutus"
-                android:title="About Us" />
-            <item
-                android:id="@+id/nv_rate"
-                android:icon="@drawable/ic_rate"
-                android:title="Rate" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nv_account"
+                    android:icon="@drawable/ic_account"
+                    android:title="Account" />
+                <item
+                    android:id="@+id/nv_aboutus"
+                    android:icon="@drawable/ic_aboutus"
+                    android:title="About Us" />
+            </group>
         </menu>
     </item>
 </menu>

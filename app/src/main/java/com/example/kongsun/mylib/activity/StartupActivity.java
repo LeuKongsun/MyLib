@@ -17,13 +17,13 @@ public class StartupActivity extends Activity {
             @Override
             public void run() {
                 finish();
-                startMainActivity();
+                startLoginActivity();
             }
         },1000);
     }
 
-    private void startMainActivity() {
-        Intent mainIntent = new Intent(this,MainActivity.class);
-        startActivity(mainIntent);
+    private void startLoginActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }

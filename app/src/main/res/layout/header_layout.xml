@@ -6,7 +6,7 @@
     android:background="@drawable/background"
     app:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/img_profile"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -21,12 +21,14 @@
         android:layout_marginLeft="10dp"
         android:text="SteveJob@apple.com"/>
     <TextView
+        android:id="@+id/txt_Username"
         android:layout_marginLeft="10dp"
         android:layout_below="@id/txt_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Steve Job"/>
     <TextView
+        android:id="@+id/txt_signOut"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:layout_below="@id/txt_email"

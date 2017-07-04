@@ -3,22 +3,29 @@ package com.example.kongsun.mylib.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import com.example.kongsun.mylib.R;
-import com.example.kongsun.mylib.fragment.AllBookfragment;
-import com.example.kongsun.mylib.fragment.NewFragment;
-import com.example.kongsun.mylib.fragment.PopularFragment;
-import com.example.kongsun.mylib.fragment.SignupFragment;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import com.android.volley.toolbox.NetworkImageView;
+import com.example.kongsun.mylib.R;
+import com.example.kongsun.mylib.db.User;
+import com.example.kongsun.mylib.fragment.AboutUs;
+import com.example.kongsun.mylib.fragment.SignupFragment;
+import com.facebook.Profile;
+import com.facebook.login.LoginManager;
+
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
     private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,43 +43,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView txtUsername = (TextView) headerView.findViewById(R.id.txt_Username);
+        NetworkImageView imgProfile = (NetworkImageView) headerView.findViewById(R.id.img_profile);
+
+
+        if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+            User currentUser = Myapp.getInstance(this).getCurrentUser();
+            txtUsername.setText(currentUser.getFirstname() + currentUser.getLastname());
+        } else {
+            Profile profile = Profile.getCurrentProfile();
+            txtUsername.setText(profile.getName());
+            String profileImageUrl = profile.getProfilePictureUri(230, 230).toString();
+            imgProfile.setImageUrl(profileImageUrl, Myapp.getInstance(this).getImageLoader());
+        }
+
+        TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
+        txtSignOut.setOnClickListener(this);
+        onHomeClick();
     }
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.nv_all:
-                onAllClick();
-                break;
-            case R.id.nv_new:
-                onNewClick();
-                break;
-            case R.id.nv_popular:
-                onPopularClick();
-                break;
+        if (view.getId() == R.id.txt_signOut) {
+            if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+                Log.d("e-library", "Logout from username/password");
+                SharedPreferences preferences = getSharedPreferences(LoginActivity.PREFERENCE_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.remove(LoginActivity.KEY_USERNAME);
+                editor.commit();
+            } else {
+                Log.d("e-library", "Logout from Facebook");
+                LoginManager.getInstance().logOut();
+            }
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
-    }
-
-    private void onPopularClick() {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        PopularFragment popularFragment = new PopularFragment();
-        fragmentTransaction.replace(R.id.nested_fragment, popularFragment);
-        fragmentTransaction.commit();
-    }
-
-    private void onNewClick() {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        NewFragment newFragment = new NewFragment();
-        fragmentTransaction.replace(R.id.nested_fragment, newFragment);
-        fragmentTransaction.commit();
-    }
-
-    private void onAllClick() {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        AllBookfragment allBookfragment = new AllBookfragment();
-        fragmentTransaction.replace(R.id.nested_fragment, allBookfragment);
-        fragmentTransaction.commit();
     }
 
     @Override
@@ -83,10 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Home");
                 onHomeClick();
                 break;
-            case R.id.nv_category:
-                getSupportActionBar().setTitle("Categories");
-                onCategoryClick();
-                break;
             case R.id.nv_account:
                 getSupportActionBar().setTitle("Account");
                 onAccountClick();
@@ -94,53 +96,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nv_aboutus:
                 onAboutUsClick();
                 break;
-            case R.id.nv_favorite:
-                onFavoriteClick();
         }
         return true;
     }
 
-    private void onFavoriteClick() {
+
+    private void onAboutUsClick() {
+        /*Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);*/
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        AllBookfragment allBookfragment = new AllBookfragment();
-        fragmentTransaction.replace(R.id.layout_content, allBookfragment);
+        AboutUs aboutUsFragement = new AboutUs();
+        fragmentTransaction.replace(R.id.layout_content, aboutUsFragement);
         fragmentTransaction.commit();
     }
 
-    private void onAboutUsClick() {
-        Intent intent = new Intent(this, AboutUsActivity.class);
-        startActivity(intent);
-    }
-
     private void onHomeClick() {
-        Intent intent = new Intent(this,BookNestedRCViewActivity.class);
-        startActivity(intent);
-        /*
+        /*Intent intent = new Intent(this,HomeFragment.class);
+        startActivity(intent);*/
+
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
+        NestedRecyclerView homeFragment = new NestedRecyclerView();
         fragmentTransaction.replace(R.id.layout_content, homeFragment);
-        fragmentTransaction.commit();*/
+        fragmentTransaction.commit();
     }
 
     private void onAccountClick() {
-        /*Intent intent = new Intent(this,AccountActivity.class);
+        /*Intent intent = new Intent(this,FragmentActivity.class);
         startActivity(intent);*/
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         SignupFragment signupFragment = new SignupFragment();
         fragmentTransaction.replace(R.id.layout_content, signupFragment);
         fragmentTransaction.commit();
-    }
-
-    private void onCategoryClick() {
-        Intent intent = new Intent(this, CategoryActivity.class);
-        startActivity(intent);
-        /*FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        CategoryFragment categoryFragment = new CategoryFragment();
-        fragmentTransaction.replace(R.id.layout_content,categoryFragment);
-        fragmentTransaction.commit();*/
     }
 }

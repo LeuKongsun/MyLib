@@ -5,10 +5,10 @@ package com.example.kongsun.mylib.adapter;
  */
 
 public class Book {
-    private String title;
-    private String author;
-    private String rate;
-    private String thumnail;
+    public String title;
+    public String author;
+    public String rate;
+    public String thumnail;
 
     public String getTitle() {
         return title;

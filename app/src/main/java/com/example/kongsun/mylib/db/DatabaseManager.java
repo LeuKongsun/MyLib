@@ -15,11 +15,12 @@ import java.util.List;
  * Created by kongsun on 5/13/17.
  */
 
-public class DatabaseManager extends SQLiteOpenHelper { //It is a kind of abstract class. abstract method need to implement.
-//Default constructor
-//Define Database name and Version. Name "E-library" and Version 1.
+public class DatabaseManager extends SQLiteOpenHelper {
+    //It is a kind of abstract class. abstract method need to implement.
+    //Default constructor
+    //Define Database name and Version. Name "E-library" and Version 1.
     public DatabaseManager(Context context) {
-        super(context, "E-library", null, 1);
+        super(context, "E-library.db", null, 1);
     }
 // Two function below are abstract method
 // Create table schema(structure)

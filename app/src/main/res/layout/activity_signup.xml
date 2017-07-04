@@ -3,14 +3,51 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
-
-    <LinearLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="20dp">
+    <RelativeLayout
+        android:id="@+id/prof_section"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="20dp">
+        android:layout_height="150dp">
+        <ImageView
+            android:id="@+id/img_singin_profile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/library"
+            />
+        <TextView
+            android:id="@+id/txt_signin_name"
+            android:layout_toRightOf="@id/img_singin_profile"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Name goes here"/>
+        <TextView
+            android:id="@+id/txt_signin_mail"
+            android:layout_below="@id/txt_signin_name"
+            android:layout_toRightOf="@id/img_singin_profile"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Email@email.com"/>
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sign out"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_signin_mail"/>
+    </RelativeLayout>
 
         <ImageView
             android:layout_width="50dp"
@@ -78,21 +115,18 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="OR" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="fill_parent"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_fb_login"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="Sign Up with Facebook"
-            android:textColor="@color/white" />
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@color/red"
-            android:text="Sign up with google+"
-            android:textColor="@color/white" />
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_google_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
     </LinearLayout>
-
 </ScrollView>

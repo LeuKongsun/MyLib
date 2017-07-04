@@ -153,4 +153,10 @@
                 android:textSize="20sp" />
         </RelativeLayout>
     </LinearLayout>
+    <ImageView
+        android:id="@+id/img_map"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_maplight"/>
 </LinearLayout>

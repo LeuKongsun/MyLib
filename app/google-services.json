@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "775294841662",
+    "project_id": "e-library-171312"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775294841662:android:df5278e3f00dcf58",
+        "android_client_info": {
+          "package_name": "com.example.kongsun.mylib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775294841662-nt3ndca5ld4ane2fluhv106rvv0pkoe2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kongsun.mylib",
+            "certificate_hash": "14cd43d87107993e9371ab4a190909598ec4b0d4"
+          }
+        },
+        {
+          "client_id": "775294841662-13jfupo9686affm6fnm3uf8vpn9mi2hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc7g5P5-Ov3f4vVhA0anzYbX1PeuVAf38"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
