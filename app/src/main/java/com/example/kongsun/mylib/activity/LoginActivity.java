@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.kongsun.mylib.R;
 import com.example.kongsun.mylib.db.DbLibrary;
 import com.example.kongsun.mylib.db.User;
@@ -45,6 +44,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         }
         if(AccessToken.getCurrentAccessToken() != null){
             Utils.showLog("Start main activity via Facebook");
+            Myapp.getInstance(this).setLoginMethod(Myapp.LOGIN_METHOD_FACEBOOK);
             startMainActivity();
             return;
         }
@@ -52,6 +52,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         LoginButton loginButton = (LoginButton)findViewById(R.id.btn_fb_login);
         loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager,callback);
+        /*LoginManager loginManager = LoginManager.getInstance();
+        loginManager.registerCallback(callbackManager);
+        loginManager.logInWithReadPermissions(this,"e-mail");*/
     }
 
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {

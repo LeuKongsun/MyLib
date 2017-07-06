@@ -5,15 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
-import com.example.kongsun.mylib.db.User;
+
+import static com.example.kongsun.mylib.R.drawable.library;
+
 /**
  * Created by kongsun on 6/30/17.
  */
 
 public class DbLibrary extends SQLiteAssetHelper {
+    private static final String DATABASE_NAME ="lib.db.sqlite";
 
     public DbLibrary(Context context) {
-        super(context, "E-library.db.sqlite", null, null, 1);
+        super(context, DATABASE_NAME, null, null, 1);
     }
 
 

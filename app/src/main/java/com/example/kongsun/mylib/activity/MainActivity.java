@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NetworkImageView imgProfile = (NetworkImageView) headerView.findViewById(R.id.img_profile);
 
 
-        if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+   /*     if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
             User currentUser = Myapp.getInstance(this).getCurrentUser();
             txtUsername.setText(currentUser.getFirstname() + currentUser.getLastname());
         } else {
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             txtUsername.setText(profile.getName());
             String profileImageUrl = profile.getProfilePictureUri(230, 230).toString();
             imgProfile.setImageUrl(profileImageUrl, Myapp.getInstance(this).getImageLoader());
-        }
+        }*/
 
         TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
         txtSignOut.setOnClickListener(this);
