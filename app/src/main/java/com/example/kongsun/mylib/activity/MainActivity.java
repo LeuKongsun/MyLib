@@ -1,5 +1,4 @@
 package com.example.kongsun.mylib.activity;
-
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.tlb_main);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("E-Library");
+        getSupportActionBar().setTitle("E-library");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NetworkImageView imgProfile = (NetworkImageView) headerView.findViewById(R.id.img_profile);
 
 
-   /*     if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+        if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
             User currentUser = Myapp.getInstance(this).getCurrentUser();
             txtUsername.setText(currentUser.getFirstname() + currentUser.getLastname());
         } else {
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             txtUsername.setText(profile.getName());
             String profileImageUrl = profile.getProfilePictureUri(230, 230).toString();
             imgProfile.setImageUrl(profileImageUrl, Myapp.getInstance(this).getImageLoader());
-        }*/
+        }
 
         TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
         txtSignOut.setOnClickListener(this);
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 SharedPreferences preferences = getSharedPreferences(LoginActivity.PREFERENCE_NAME, MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.remove(LoginActivity.KEY_USERNAME);
-                editor.commit();
+                editor.apply();
             } else {
                 Log.d("e-library", "Logout from Facebook");
                 LoginManager.getInstance().logOut();
