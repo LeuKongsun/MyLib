@@ -14,7 +14,7 @@ import com.example.kongsun.mylib.db.User;
 
 public class Myapp {
     public static final int LOGIN_METHOD_USERNAME_PASSWORD=0;
-    public static final int LOGIN_METHOD_FACEBOOK=1;
+    public static final int LOGIN_METHOD_FIREBASE = 1;
 
     private static Myapp instance;
 
