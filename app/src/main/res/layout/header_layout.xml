@@ -13,17 +13,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/profile" />
-    <TextView
-        android:id="@+id/txt_email"
-        android:layout_below="@id/img_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="SteveJob@apple.com"/>
+
     <TextView
         android:id="@+id/txt_Username"
         android:layout_marginLeft="10dp"
-        android:layout_below="@id/txt_email"
+        android:layout_below="@id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Steve Job"/>
@@ -31,7 +25,7 @@
         android:id="@+id/txt_signOut"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_below="@id/txt_email"
+        android:layout_below="@id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign out"/>

@@ -19,6 +19,7 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.example.kongsun.mylib.R;
 import com.example.kongsun.mylib.db.User;
 import com.example.kongsun.mylib.fragment.AboutUs;
+import com.example.kongsun.mylib.fragment.FavoriteFragment;
 import com.example.kongsun.mylib.fragment.SignupFragment;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
@@ -47,8 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView txtUsername = (TextView) headerView.findViewById(R.id.txt_Username);
         NetworkImageView imgProfile = (NetworkImageView) headerView.findViewById(R.id.img_profile);
 
-
-        if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+        /*if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
             User currentUser = Myapp.getInstance(this).getCurrentUser();
             txtUsername.setText(currentUser.getFirstname() + currentUser.getLastname());
         } else {
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String profileImageUrl = profile.getProfilePictureUri(230, 230).toString();
             imgProfile.setImageUrl(profileImageUrl, Myapp.getInstance(this).getImageLoader());
         }
-
+*/
         TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
         txtSignOut.setOnClickListener(this);
         onHomeClick();
@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Home");
                 onHomeClick();
                 break;
+            case R.id.nv_favorite:
+                onFavoriteClick();
+                break;
             case R.id.nv_account:
                 getSupportActionBar().setTitle("Account");
                 onAccountClick();
@@ -97,6 +100,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+
+    private void onFavoriteClick() {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FavoriteFragment favoriteFragment = new FavoriteFragment();
+        fragmentTransaction.replace(R.id.layout_content, favoriteFragment);
+        fragmentTransaction.commit();
+
     }
 
 

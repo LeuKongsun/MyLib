@@ -4,8 +4,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,8 +34,8 @@ public class NestedRecyclerView extends Fragment implements OnRclView2Dimen{
         recyclerView = (RecyclerView) view.findViewById(R.id.outer_recyclerview);
         //Layout Manager
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         //Adapter outer
         outerAdapter = new OuterRecycler(this);
         recyclerView.setAdapter(outerAdapter);
@@ -65,8 +63,8 @@ public class NestedRecyclerView extends Fragment implements OnRclView2Dimen{
     }
 
     @Override
-    public void OnRclView2Dimen(int positionR, int positionC) {
-        Log.d("Hello","position:"+positionR+positionC);
+    public void OnRclView2Dimen(Book selectedbook) {
+        Log.d("Hello","position:"+selectedbook.getTitle());
     }
 
     // Outer RecyclerView
@@ -89,7 +87,7 @@ public class NestedRecyclerView extends Fragment implements OnRclView2Dimen{
 
         @Override
         public int getItemCount() {
-            return 10;
+            return 3;
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
@@ -145,7 +143,7 @@ public class NestedRecyclerView extends Fragment implements OnRclView2Dimen{
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        onRclView2Dimen.OnRclView2Dimen(getLayoutPosition(),getLayoutPosition());
+                        onRclView2Dimen.OnRclView2Dimen(books.get(getAdapterPosition()));
                     }
                 });
                 title = (TextView) itemView.findViewById(R.id.txt_title);

@@ -5,5 +5,5 @@ package com.example.kongsun.mylib.adapter;
  */
 
 public interface OnRclView2Dimen {
-    void OnRclView2Dimen(int positionR,int positionC);
+    void OnRclView2Dimen(Book selectedbook);
 }

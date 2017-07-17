@@ -31,7 +31,7 @@ public class CategoryActivity extends AppCompatActivity implements OnRecyclerVie
         getSupportActionBar().setTitle("Category");
 
         //Put Recyclerview
-        recyclerView = (RecyclerView) findViewById(R.id.category_recycler);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
         //LayoutManager
         RecyclerView.LayoutManager caLayoutManager = new LinearLayoutManager(getApplicationContext());

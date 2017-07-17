@@ -20,8 +20,8 @@
             android:src="@drawable/book" />
 
         <TextView
-            android:id="@+id/txt_title"
-            android:layout_width="match_parent"
+            android:id="@+id/txt_titleF"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingLeft="72dp"
@@ -30,27 +30,36 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_author"
+            android:id="@+id/txt_authorF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_title"
+            android:layout_below="@id/txt_titleF"
             android:paddingLeft="72dp"
             android:text="Mc.Growth Hill - 2005" />
+        <TextView
+            android:id="@+id/txt_rateF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/txt_titleF"
+            android:textColor="@color/colorAccent"
+            android:text="4.5" />
 
-        <ImageButton
-            android:id="@+id/favorite"
+        <ImageView
+            android:id="@+id/favoriteF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="8dp"
             android:background="#00ffffff"
             android:onClick="onToggleStar"
-            android:src="@drawable/ic_favorited" />
+            android:src="@drawable/ic_favorite" />
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/favorite"
+            android:layout_toLeftOf="@id/favoriteF"
             android:background="#00ffffff"
             android:onClick="onClick"
             android:paddingTop="12dp"

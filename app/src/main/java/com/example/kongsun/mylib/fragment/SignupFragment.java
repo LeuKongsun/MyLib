@@ -39,7 +39,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
  * Created by kongsun on 5/29/17.
  */
 
-public class SignupFragment extends Fragment implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener{
+public class SignupFragment extends Fragment{
     //Facebook Login
     private CallbackManager callbackManager;
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
@@ -86,7 +86,6 @@ public class SignupFragment extends Fragment implements View.OnClickListener,Goo
     private Button logout;
     private SignInButton SignIn;
     private TextView name,email;
-    private ImageView Prof_Pic;
     private GoogleApiClient googleApiClient;
     private static final int REQ_CODE = 9001;
 
@@ -94,50 +93,7 @@ public class SignupFragment extends Fragment implements View.OnClickListener,Goo
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_signup, container, false);
-        Prof_Section = (RelativeLayout) view.findViewById(R.id.prof_section);
-        logout = (Button) view.findViewById(R.id.logout);
-        SignIn = (SignInButton)view.findViewById(R.id.btn_google_login);
-        name = (TextView) view.findViewById(R.id.txt_signin_name);
-        email = (TextView) view.findViewById(R.id.txt_signin_mail);
-        Prof_Pic = (ImageView) view.findViewById(R.id.img_singin_profile);
-        SignIn.setOnClickListener(this);
-        logout.setOnClickListener(this);
-        Prof_Section.setVisibility(View.GONE);
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        //googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,googleSignInOptions).build();
-        //googleApiClient = new GoogleApiClient.Builder(this)
-        //       .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
-        //        .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
-        //        .build();
         return view;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_google_login:
-                signIn();
-                break;
-        }
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-    private void signIn(){
-        Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
-        startActivityForResult(intent,REQ_CODE);
-    }
-    private void Logout(){
-
-    }
-    private void handleResult(){
-
-    }
-    private void UpdateUI(){
-
-    }
 }

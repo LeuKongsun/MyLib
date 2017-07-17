@@ -26,7 +26,7 @@ public class CategoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.content, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.category_recycler);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
 
         // Layout Manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
