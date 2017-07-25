@@ -19,8 +19,7 @@
         </activity>
         <activity android:name=".activity.LoginActivity"></activity>
         <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.CategoryActivity"></activity>
-
+        <activity android:name=".activity.TablayoutViewPager"></activity>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
     </application>
 

@@ -3,20 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="160dp"
+    android:gravity="center"
     android:background="@drawable/background"
     app:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-    <com.android.volley.toolbox.NetworkImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/img_profile"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/profile" />
+        android:src="@drawable/profile"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#FF000000"/>
 
     <TextView
-        android:id="@+id/txt_Username"
-        android:layout_marginLeft="10dp"
+        android:id="@+id/txt_username"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
         android:layout_below="@id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +28,9 @@
     <TextView
         android:id="@+id/txt_signOut"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:textSize="20sp"
         android:layout_below="@id/img_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

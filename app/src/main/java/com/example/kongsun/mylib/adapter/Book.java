@@ -5,10 +5,10 @@ package com.example.kongsun.mylib.adapter;
  */
 
 public class Book {
+    public int id;
     public String title;
     public String author;
-    public String rate;
-    public String thumnail;
+    public String thumnailUrl;
 
     public String getTitle() {
         return title;
@@ -22,31 +22,15 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public String getThumnailUrl() {
+        return thumnailUrl;
     }
 
-    public String getRate() {
-        return rate;
-    }
-
-    public void setRate(String rate) {
-        this.rate = rate;
-    }
-
-    public String getThumnail() {
-        return thumnail;
-    }
-
-    public void setThumnail(String thumnail) {
-        this.thumnail = thumnail;
-    }
-
-    public Book(String title, String author, String rate, String thumnail){
+    public Book(int id, String title, String author, String thumnailUrl){
+        this.id = id;
         this.title = title;
         this.author = author;
-        this.rate = rate;
-        this.thumnail = thumnail;
+        this.thumnailUrl = thumnailUrl;
 
     }
 }

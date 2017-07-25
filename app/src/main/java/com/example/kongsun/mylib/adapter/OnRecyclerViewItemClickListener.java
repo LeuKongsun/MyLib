@@ -5,6 +5,6 @@ package com.example.kongsun.mylib.adapter;
  */
 
 public interface OnRecyclerViewItemClickListener {
-    void onRecyclerViewItemClickListener(int position );
+    void onRecyclerViewItemClickListener(int position);
 
 }

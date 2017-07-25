@@ -53,7 +53,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onRecyclerViewItemClickListener.onRecyclerViewItemClickListener(getLayoutPosition());
+             //       onRecyclerViewItemClickListener.onRecyclerViewItemClickListener(getLayoutPosition());
                 }
             });
             category = (TextView) itemView.findViewById(R.id.txt_category);

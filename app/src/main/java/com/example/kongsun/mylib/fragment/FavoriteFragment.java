@@ -3,7 +3,6 @@ package com.example.kongsun.mylib.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.kongsun.mylib.R;
 import com.example.kongsun.mylib.adapter.Book;
-import com.example.kongsun.mylib.adapter.RecyclerViewList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +25,9 @@ public class FavoriteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-
+        View view = inflater.inflate(R.layout.fragment_favorite, container, false);
+        //recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+/*
         // Layout Manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -37,9 +35,11 @@ public class FavoriteFragment extends Fragment {
         RecyclerViewList recyclerViewList = new RecyclerViewList();
         recyclerView.setAdapter(recyclerViewList);
         prepareBookData();
+        */
         return view;
 
     }
+    /*
     private void prepareBookData() {
         Book book = new Book("Microsoft Office", "Bill Gate", "4.5", "");
         bookList.add(book);
@@ -56,4 +56,5 @@ public class FavoriteFragment extends Fragment {
         book = new Book("Command Prompt", "Jack Ma", "4.5", "");
         bookList.add(book);
     }
+    */
 }

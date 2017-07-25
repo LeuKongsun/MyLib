@@ -3,8 +3,10 @@ package com.example.kongsun.mylib.activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kongsun.mylib.db.User;
 
@@ -73,5 +75,9 @@ public class Myapp {
     }
     public void setLoginMethod(int loginMethod){
         this.loginMethod = loginMethod;
+    }
+
+    public void addRequest(Request request) {
+        requestQueue.add(request);
     }
 }

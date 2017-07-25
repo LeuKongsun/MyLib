@@ -26,7 +26,7 @@ public class RecyclerViewList extends RecyclerView.Adapter<RecyclerViewList.Favo
     @Override
     public FavoriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.favorite_fragment, parent, false);
+                .inflate(R.layout.fragment_favorite, parent, false);
         return new FavoriteViewHolder(view);
     }
 
@@ -36,7 +36,6 @@ public class RecyclerViewList extends RecyclerView.Adapter<RecyclerViewList.Favo
         Book book = books.get(position);
         holder.title.setText(book.getTitle());
         holder.author.setText(book.getAuthor());
-        holder.rate.setText(book.getRate());
     }
 
     @Override
@@ -47,19 +46,17 @@ public class RecyclerViewList extends RecyclerView.Adapter<RecyclerViewList.Favo
     public class FavoriteViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private TextView author;
-        private TextView rate;
         public FavoriteViewHolder(View itemView) {
             super(itemView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onRecyclerViewItemClickListener.onRecyclerViewItemClickListener(getLayoutPosition());
+                    //onRecyclerViewItemClickListener.onRecyclerViewItemClickListener(getLayoutPosition());
                 }
             });
             title = (TextView) itemView.findViewById(R.id.txt_title);
             author = (TextView) itemView.findViewById(R.id.txt_author);
-            rate = (TextView) itemView.findViewById(R.id.txt_rate);
         }
     }
 }

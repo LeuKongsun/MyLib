@@ -17,7 +17,7 @@ public class StartupActivity extends Activity {
             @Override
             public void run() {
                 finish();
-                //startLoginActivity();
+     //           startLoginActivity();
                 startMainActivity();
             }
         },1000);
@@ -27,9 +27,10 @@ public class StartupActivity extends Activity {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
-
-    /*private void startLoginActivity() {
+/*
+    private void startLoginActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
-    }*/
+    }
+    */
 }

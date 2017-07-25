@@ -1,10 +1,12 @@
 package com.example.kongsun.mylib.activity;
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,14 +17,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
 import com.example.kongsun.mylib.R;
-import com.example.kongsun.mylib.db.User;
 import com.example.kongsun.mylib.fragment.AboutUs;
+import com.example.kongsun.mylib.fragment.Entertainment;
 import com.example.kongsun.mylib.fragment.FavoriteFragment;
+import com.example.kongsun.mylib.fragment.MylibraryFragment;
 import com.example.kongsun.mylib.fragment.SignupFragment;
-import com.facebook.Profile;
+import com.example.kongsun.mylib.fragment.ViewPagerFragment;
 import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
@@ -45,17 +49,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerToggle.syncState();
 
         View headerView = navigationView.getHeaderView(0);
-        TextView txtUsername = (TextView) headerView.findViewById(R.id.txt_Username);
-        NetworkImageView imgProfile = (NetworkImageView) headerView.findViewById(R.id.img_profile);
+        TextView txtUsername = (TextView) headerView.findViewById(R.id.txt_username);
+      /*  final CircleImageView imgProfile = (CircleImageView) headerView.findViewById(R.id.img_profile);
 
-        /*if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
+        if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
             User currentUser = Myapp.getInstance(this).getCurrentUser();
-            txtUsername.setText(currentUser.getFirstname() + currentUser.getLastname());
+            txtUsername.setText(currentUser.getFirstname()+ currentUser.getLastname());
         } else {
             Profile profile = Profile.getCurrentProfile();
             txtUsername.setText(profile.getName());
+
             String profileImageUrl = profile.getProfilePictureUri(230, 230).toString();
-            imgProfile.setImageUrl(profileImageUrl, Myapp.getInstance(this).getImageLoader());
+
+            ImageRequest imageRequest = new ImageRequest(profileImageUrl, new Response.Listener<Bitmap>() {
+                @Override
+                public void onResponse(Bitmap response) {
+                    imgProfile.setImageBitmap(response);
+                }
+            }, 230, 230, ImageView.ScaleType.FIT_XY, Bitmap.Config.RGB_565, null);
+            Myapp.getInstance(this).addRequest(imageRequest);
         }
 */
         TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
@@ -73,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else {
                 Log.d("e-library", "Logout from Facebook");
                 LoginManager.getInstance().logOut();
+                FirebaseAuth.getInstance().signOut();
             }
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -88,7 +101,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Home");
                 onHomeClick();
                 break;
+            case R.id.nv_mylibrary:
+                getSupportActionBar().setTitle("My Library");
+                onMylibClick();
+                break;
             case R.id.nv_favorite:
+                getSupportActionBar().setTitle("Favorite");
                 onFavoriteClick();
                 break;
             case R.id.nv_account:
@@ -100,6 +118,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+
+    private void onHomeClick() {
+        /*
+        Intent intent = new Intent(this,TablayoutViewPager.class);
+        startActivity(intent);
+*/
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Entertainment entertainment = new Entertainment();
+        fragmentTransaction.replace(R.id.layout_content, entertainment);
+        fragmentTransaction.commit();
+    }
+    private void onMylibClick() {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MylibraryFragment mylibraryFragment = new MylibraryFragment();
+        fragmentTransaction.replace(R.id.layout_content, mylibraryFragment);
+        fragmentTransaction.commit();
     }
 
     private void onFavoriteClick() {
@@ -122,16 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
-    private void onHomeClick() {
-        /*Intent intent = new Intent(this,HomeFragment.class);
-        startActivity(intent);*/
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        NestedRecyclerView homeFragment = new NestedRecyclerView();
-        fragmentTransaction.replace(R.id.layout_content, homeFragment);
-        fragmentTransaction.commit();
-    }
 
     private void onAccountClick() {
         /*Intent intent = new Intent(this,FragmentActivity.class);
