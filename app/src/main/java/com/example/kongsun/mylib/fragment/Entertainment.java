@@ -2,6 +2,7 @@ package com.example.kongsun.mylib.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,13 +28,20 @@ import org.json.JSONObject;
  * Created by kongsun on 7/21/17.
  */
 
-public class Entertainment extends Fragment implements OnRecyclerViewItemClickListener{
+public class Entertainment extends Fragment implements OnRecyclerViewItemClickListener,SwipeRefreshLayout.OnRefreshListener{
     private RecyclerView recyclerView;
     private EntertainmentAdapter adapter;
+    private SwipeRefreshLayout lytLoading;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_entertainment, container, false);
+
+        lytLoading = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout);
+        lytLoading.setOnRefreshListener(this);
+
         recyclerView = (RecyclerView) view.findViewById(R.id.rcl_entertainment);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -54,6 +62,7 @@ public class Entertainment extends Fragment implements OnRecyclerViewItemClickLi
             @Override
             public void onResponse(JSONArray response) {
                 Log.d("ckcc", response.toString());
+                showLoading(false);
                 try{
                     Book[] bookList = new Book[response.length()];
                     for (int i = 0; i < response.length(); i++) {
@@ -75,16 +84,21 @@ public class Entertainment extends Fragment implements OnRecyclerViewItemClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getActivity(), "Loading data from server error", Toast.LENGTH_LONG).show();
+                showLoading(false);
             }
         };
         JsonArrayRequest request = new JsonArrayRequest(url, listener, errorListener);
         Myapp.getInstance(getActivity()).addRequest(request);
-
-
     }
+    private void showLoading(boolean state){lytLoading.setRefreshing(state);}
     @Override
     public void onRecyclerViewItemClickListener(int position) {
         for (int i=0 ; i< position ; i++)
             if (position == i) Log.d("Elib","click success"+ position);
+    }
+
+    @Override
+    public void onRefresh() {
+        loadBookFromServer();
     }
 }

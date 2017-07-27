@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 
 public class MylibraryFragment extends Fragment {
-    ListView lv_pdf;
+    private ListView lv_pdf;
     public static ArrayList<File> fileList = new ArrayList<>();
     PdfAdapter obj_adapter;
     public static int REQUEST_PERMISSIONS = 1;
@@ -39,13 +39,10 @@ public class MylibraryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mylib, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_mylib,container,false);
         lv_pdf = (ListView) view.findViewById(R.id.lv_pdf);
         dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
         fn_permission();
-
-
         lv_pdf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -56,7 +53,8 @@ public class MylibraryFragment extends Fragment {
                 Log.e("Position", i + "");
             }
         });
-        return view;}
+        return view;
+    }
 
     public ArrayList<File> getfile(File dir) {
         File listFile[] = dir.listFiles();
@@ -125,7 +123,7 @@ public class MylibraryFragment extends Fragment {
                 boolean_permission = true;
                 getfile(dir);
 
-                obj_adapter = new PdfAdapter(getActivity(), fileList);
+                obj_adapter = new PdfAdapter (getActivity(), fileList);
                 lv_pdf.setAdapter(obj_adapter);
 
             } else {

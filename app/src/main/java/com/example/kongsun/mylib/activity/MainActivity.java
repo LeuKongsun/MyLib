@@ -1,9 +1,9 @@
 package com.example.kongsun.mylib.activity;
-import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,18 +15,24 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.toolbox.ImageRequest;
 import com.example.kongsun.mylib.R;
+import com.example.kongsun.mylib.db.User;
 import com.example.kongsun.mylib.fragment.AboutUs;
 import com.example.kongsun.mylib.fragment.Entertainment;
 import com.example.kongsun.mylib.fragment.FavoriteFragment;
 import com.example.kongsun.mylib.fragment.MylibraryFragment;
 import com.example.kongsun.mylib.fragment.SignupFragment;
 import com.example.kongsun.mylib.fragment.ViewPagerFragment;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
@@ -50,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         View headerView = navigationView.getHeaderView(0);
         TextView txtUsername = (TextView) headerView.findViewById(R.id.txt_username);
-      /*  final CircleImageView imgProfile = (CircleImageView) headerView.findViewById(R.id.img_profile);
+        final CircleImageView imgProfile = (CircleImageView) headerView.findViewById(R.id.img_profile);
 
         if (Myapp.getInstance(this).getLoginMethod() == Myapp.LOGIN_METHOD_USERNAME_PASSWORD) {
             User currentUser = Myapp.getInstance(this).getCurrentUser();
@@ -69,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }, 230, 230, ImageView.ScaleType.FIT_XY, Bitmap.Config.RGB_565, null);
             Myapp.getInstance(this).addRequest(imageRequest);
         }
-*/
+
         TextView txtSignOut = (TextView) headerView.findViewById(R.id.txt_signOut);
         txtSignOut.setOnClickListener(this);
         onHomeClick();
@@ -132,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
     private void onMylibClick() {
+       /* Intent intent = new Intent(this,MylibraryFragment.class);
+        startActivity(intent);
+        */
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         MylibraryFragment mylibraryFragment = new MylibraryFragment();
